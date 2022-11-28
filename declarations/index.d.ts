@@ -1,15 +1,34 @@
-import './global'
-import './os'
-import './http'
-import './fs'
-import './textutils'
-import './parallel'
-import './peripheral'
+import './colors';
+import './disk';
+import './fs';
+import './global';
+import './gps';
+import './help';
+import './http';
+import './keys';
+import './multishell';
+import './os';
+import './paintutils';
+import './parallel';
+import './peripheral';
+import './pocket';
+import './rednet';
+import './redstone';
+import './settings';
+import './shell';
+import './term';
+import './textutils';
+import './turtle';
+import './vector';
+import './window';
 
-// import './io' // conflicts with io in the lua-types
-
-import './colors'
-import './term'
-import './shell'
-
-import './turtle'
+import './peripherals/command';
+import './peripherals/computer';
+import './peripherals/drive';
+import './peripherals/modem';
+import './peripherals/monitor';
+import './peripherals/printer';
+import './peripherals/speaker';
+import './peripherals/generic/energy_storage';
+import './peripherals/generic/fluid_storage';
+import './peripherals/generic/item_storage';

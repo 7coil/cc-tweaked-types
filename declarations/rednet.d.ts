@@ -1,19 +1,19 @@
 /** @noSelfInFile */
 declare namespace rednet {
-    /** 
+    /**
      * The channel used by the Rednet API to [broadcast](https://tweaked.cc/module/rednet.html#v:broadcast) messages.
-     * 
+     *
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/rednet.html#v:CHANNEL_BROADCAST)
      */
     const CHANNEL_BROADCAST = 65535
-    /** 
+    /**
      * The channel used by the Rednet API to repeat messages.
-     * 
+     *
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/rednet.html#v:CHANNEL_REPEAT)
      */
     const CHANNEL_REPEAT = 65533
 
-    /** 
+    /**
      * Opens a modem with the given @{peripheral} name, allowing it to send and receive messages over rednet.
      *
      * This will open the modem on two channels: one which has the same @{os.getComputerID|ID} as the computer, and another on @{CHANNEL_BROADCAST|the broadcast channel}.
@@ -24,8 +24,8 @@ declare namespace rednet {
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.open)
      */
     function open(modem: ComputerSide): void
-    
-    /** 
+
+    /**
      * Close a modem with the given @{peripheral} name, meaning it can no longer send and receive rednet messages.
      *
      * @param modem The side the modem exists on. If not given, all open modems will be closed.
@@ -34,7 +34,7 @@ declare namespace rednet {
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.close)
      */
     function close(modem: ComputerSide | null): void
-    
+
     /** Determine if rednet is currently open.
      *
      * @param modem Which modem to check. If not given, all connected modems will be checked.
@@ -43,7 +43,7 @@ declare namespace rednet {
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.isOpen)
      */
     function isOpen(modem: ComputerSide): boolean
-    
+
     /** Allows a computer or turtle with an attached modem to send a message intended for a system with a specific ID. At least one such modem must first
      * be @{rednet.open|opened} before sending is possible.
      *
@@ -60,7 +60,7 @@ declare namespace rednet {
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.send)
      */
     function send(nRecipient: number, message: any, sProtocol?: string | null): boolean
-    
+
     /** Broadcasts a string message over the predefined @{CHANNEL_BROADCAST} channel. The message will be received by every device listening to rednet.
      *
      * @param message The message to send. This should not contain coroutines or functions, as they will be converted to @{nil}.
@@ -71,7 +71,7 @@ declare namespace rednet {
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.broadcast)
      */
     function broadcast(message: any, sProtocol?: string | null): void
-    
+
     /** Wait for a rednet message to be received, or until `nTimeout` seconds have elapsed.
      *
      * @param sProtocolFilter The protocol the received message must be sent with. If specified, any messages not sent under this protocol will be discarded.
@@ -87,7 +87,7 @@ declare namespace rednet {
      */
     function receive(sProtocolFilter?: string, nTimeout?: number): LuaMultiReturn<[computerID: number, message: any, protocol: string|null]>
     function receive(sProtocolFilter?: string, nTimeout?: number): LuaMultiReturn<[null]>
-    
+
     /** Register the system as "hosting" the desired protocol under the specified name. If a rednet @{rednet.lookup|lookup} is performed for that protocol (and
      * maybe name) on the same network, the registered system will automatically respond via a background process, hence providing the system performing the
      * lookup with its ID number.
@@ -107,7 +107,7 @@ declare namespace rednet {
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.host)
      */
     function host(sProtocol: string, sHostname: string): void
-    
+
     /** Stop @{rednet.host|hosting} a specific protocol, meaning it will no longer respond to @{rednet.lookup} requests.
      *
      * @param sProtocol The protocol to unregister your self from.
@@ -115,7 +115,7 @@ declare namespace rednet {
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.unhost)
      */
     function unhost(sProtocol: string): void
-    
+
     /** Search the local rednet network for systems @{rednet.host|hosting} the desired protocol and returns any computer IDs that respond as "registered" against it.
      *
      * If a hostname is specified, only one ID will be returned (assuming an exact match is found).
@@ -130,7 +130,7 @@ declare namespace rednet {
      */
     function lookup(sProtocol: string, sHostname: string): number | null
     function lookup(sProtocol: string): number[] | null
-    
+
     /** Listen for modem messages and converts them into rednet messages, which may then be @{receive|received}.
      *
      * This is automatically started in the background on computer startup, and should not be called manually.

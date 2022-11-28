@@ -1,37 +1,43 @@
 {
-  "name": "cc-tweaked-types",
-  "version": "0.4.0",
-  "description": "Typescript definitions for making code that can be transpiled to CC: Tweaked varient ComputerCraft Lua Code for computing in minecraft",
-  "main": "declarations/index.d.ts",
-  "scripts": {
-    "check": "tsc -p tsconfig.json --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postversion": "git push origin --follow-tags",
-    "lint": "tslint -c tslint.json declarations/**/*.d.ts",
-    "lint:fix": "tslint -c tslint.json --fix declarations/**/*.d.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Eforen/cc-tweaked-types.git"
-  },
-  "keywords": [
-    "typescript",
-    "lua",
-    "computercraft",
-    "cc: tweaked",
-    "minecraft"
-  ],
-  "types": "declarations/index.d.ts",
+	"name": "cc-tweaked-types",
+	"version": "0.1.0",
+	"description": "Typescript definitions for making code that can be transpiled to CC: Tweaked varient ComputerCraft Lua Code for computing in minecraft",
+	"scripts": {
+		"check": "tsc -p tsconfig.json --noEmit",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"postversion": "git push origin --follow-tags",
+		"lint": "eslint -c eslint.json declarations/**/*.d.ts",
+		"lint:fix": "eslint -c eslint.json --fix declarations/**/*.d.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Eforen/cc-tweaked-types.git"
+	},
+	"keywords": [
+		"typescript",
+		"lua",
+		"computercraft",
+		"cc: tweaked",
+		"minecraft"
+	],
+	"types": "declarations/index.d.ts",
+  "files": ["declarations/**/*.d.ts"],
   "author": "Eforen (Ariel Lothlorien)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Eforen/cc-tweaked-types/issues"
-  },
-  "homepage": "https://github.com/Eforen/cc-tweaked-types#readme",
-  "dependencies": {
-    "lua-types": "^2.11.0",
-    "tslint": "^6.1.3",
-    "typescript": "^4.5.5",
-    "typescript-to-lua": "^1.3.3"
-  }
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Eforen/cc-tweaked-types/issues"
+	},
+	"homepage": "https://github.com/Eforen/cc-tweaked-types#readme",
+	"dependencies": {
+		"typescript": "^4.1.3"
+	},
+	"devDependencies": {
+        "lua-types": "^2.11.0",
+		"@typescript-eslint/eslint-plugin": "^5.5.0",
+		"@typescript-eslint/parser": "^5.5.0",
+		"eslint": "^8.3.0",
+		"eslint-plugin-jsdoc": "^37.0.3",
+		"eslint-plugin-prefer-arrow": "^1.2.3",
+		"typescript-to-lua": "^1.2.0"
+	}
 }

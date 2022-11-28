@@ -200,83 +200,82 @@ declare namespace turtle {
      */
     function dropDown( count?: number ): LuaMultiReturn<TurtleResult>
 
-    /**
-     * Change the currently selected slot.
-     * ______________________________________________________________________________________________________________
+	/**
+	 * Change the currently selected slot.
+	 *______________________________________________________________________________________________________________
      *
-     * The selected slot is determines what slot actions like {@link #drop} or {@link #getItemCount} act on.
+	 * The selected slot is determines what slot actions like {@link #drop} or {@link #getItemCount} act on.
      * Turtle inventory slot numbers are between 1 (top left) and 16 (bottom right)
-     * ______________________________________________________________________________________________________________
-     *
-     * @param slot The slot to select.
+	 * ______________________________________________________________________________________________________________*
+	 * @param slot The slot to select.
      * @throws LuaException If the slot is out of range.
-     * @return true When the slot has been selected.
-     * @see #getSelectedSlot
+	 * @return true When the slot has been selected.
+	 * @see #getSelectedSlot
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:select)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.select)
-     */
+	 * /
 
-    function select(slot: TurtleSlot): boolean
+	function select(slot: TurtleSlot): boolean;
 
-    /**
-     * Get the number of items in the given slot.
-     * ______________________________________________________________________________________________________________
-     *
+	/**
+	 * Get the number of items in the given slot.
+	 * ______________________________________________________________________________________________________________
+	 *
      * @param slot The slot we wish to check. Defaults to the {@link #select selected slot}.
-     * @return The number of items in this slot.
-     * @throws LuaException If the slot is out of range.
-     * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:getItemCount)
+	 * @return The number of items in this slot.
+	 * @throws LuaException If the slot is out of range.
+	 * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:getItemCount)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.getItemCount)
      */
-    function getItemCount( slot?: TurtleSlot ): number
+	function getItemCount( slot?: TurtleSlot ): number;
 
-    /**
-     * Get the remaining number of items which may be stored in this stack.
-     *
-     * For instance, if a slot contains 13 blocks of dirt, it has room for another 51.
-     * ______________________________________________________________________________________________________________
-     *
+	/**
+	 * Get the remaining number of items which may be stored in this stack.
+	 *
+	 * For instance, if a slot contains 13 blocks of dirt, it has room for another 51.
+	 * ______________________________________________________________________________________________________________
+	 *
      * @param slot The slot we wish to check. Defaults to the {@link #select selected slot}.
-     * @return The space left in in this slot.
-     * @throws LuaException If the slot is out of range.
+	 * @return The space left in in this slot.
+	 * @throws LuaException If the slot is out of range.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:getItemSpace)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.getItemSpace)
-     */
-    function getItemSpace( slot?: TurtleSlot ): number
+	 */
+	function getItemSpace( slot?: TurtleSlot ): number;
 
-    /**
-     * Check if there is a solid block in front of the turtle. In this case, solid refers to any non-air or liquid
+	/**
+	 * Check if there is a solid block in front of the turtle. In this case, solid refers to any non-air or liquid
      * block.
-     * ______________________________________________________________________________________________________________
-     *
+	 * ______________________________________________________________________________________________________________
+	 *
      * @cc.treturn boolean If there is a solid block in front.
      * @see [CC: Tweaked Docks](https://tweaked.cc/module/turtle.html#v:detect)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.detect)
-     */
-    function detect(): boolean
+	 */
+	function detect(): boolean;
 
-    /**
-     * Check if there is a solid block above the turtle. In this case, solid refers to any non-air or liquid block.
-     * ______________________________________________________________________________________________________________
-     *
+	/**
+	 * Check if there is a solid block above the turtle. In this case, solid refers to any non-air or liquid block.
+	 * ______________________________________________________________________________________________________________
+	 *
      * @cc.treturn boolean If there is a solid block in front.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:detectUp)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.detectUp)
-     */
-    function detectUp(): boolean
+	 */
+	function detectUp(): boolean;
 
-    /**
-     * Check if there is a solid block below the turtle. In this case, solid refers to any non-air or liquid block.
-     * ______________________________________________________________________________________________________________
-     *
+	/**
+	 * Check if there is a solid block below the turtle. In this case, solid refers to any non-air or liquid block.
+	 * ______________________________________________________________________________________________________________
+	 *
      * @cc.treturn boolean If there is a solid block in front.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:detectDown)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.detectDown)
-     */
-    function detectDown(): boolean
+	 */
+	function detectDown(): boolean;
 
     /**
-     * 
+     *
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:compare)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.compare)
      */
@@ -284,14 +283,14 @@ declare namespace turtle {
     function compare(): boolean
 
     /**
-     * 
+     *
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:compareUp)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.compareUp)
      */
     function compareUp(): boolean
 
     /**
-     * 
+     *
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:compareDown)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.compareDown)
      */
@@ -351,7 +350,7 @@ declare namespace turtle {
 
     /**
      * Suck an item from the inventory above the turtle, or from an item floating in the world.
-     * 
+     *
      * ______________________________________________________________________________________________________________
      * This will pull items into the first acceptable slot, starting at the {@link #select() currently selected} one.
      * ______________________________________________________________________________________________________________
@@ -392,7 +391,7 @@ declare namespace turtle {
     /**
      * Consume fuel {@link #select() currently selected} item to refuel the turtle
      * ______________________________________________________________________________________________________________
-     * 
+     *
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:refuel)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.refuel)
      */
@@ -400,7 +399,7 @@ declare namespace turtle {
     function refuel( count?: number ): boolean
 
     /**
-     * 
+     *
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:compareTo)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.compareTo)
      */
@@ -455,7 +454,7 @@ declare namespace turtle {
      * end
      */
     function getFuelLimit(): number | "unlimited"
-    
+
     /**
      * TODO: DELETE THIS it is only for lining up compares
      * Get the maximum possible fuel limit.

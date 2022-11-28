@@ -1,16 +1,33 @@
 /** @noSelfInFile */
 declare namespace peripheral {
-  interface Peripheral {
+	type wrappedPeripheral =
+		| commandPeripheral
+		| computerPeripheral
+		| drivePeripheral
+		| modemPeripheral
+		| monitorPeripheral
+		| printerPeripheral
+		| speakerPeripheral
+		| energyStoragePeripheral
+		| fluidStoragePeripheral
+		| itemStoragePeripheral;
 
-  }
+	function getNames(): string[];
 
-  interface SpeakerPeripheral {
-    /** @noSelf */
-    playSound(sound: string, volume?: number, pitch?: number): boolean
-  }
+	function isPresent(name: string): boolean;
 
-  /** @noSelf */
-  function find(ty: 'speaker', filter?: (name: string, wrapped: string) => boolean): SpeakerPeripheral
-  /** @noSelf */
-  function find(ty: string, filter?: (name: string, wrapped: string) => boolean): Peripheral
+	function getType(peripheral: string | wrappedPeripheral): string | null;
+
+	function getMethods(name: string): string[];
+
+	function getName(peripheral: wrappedPeripheral): string;
+
+	function call(name: string, method: string, ...args: any[]): [...any[]];
+
+	function wrap(name: string): wrappedPeripheral;
+
+	function find(
+		type: string,
+		filter: (name: string, wrapped: wrappedPeripheral) => boolean
+	): LuaMultiReturn<wrappedPeripheral[]>;
 }
